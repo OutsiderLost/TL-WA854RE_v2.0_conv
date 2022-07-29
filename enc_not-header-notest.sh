@@ -6,7 +6,7 @@
 if [ "$1" = "h" ] || [ "$1" = "-h" ] || [ "$1" = "--h" ] || [ "$1" = "help" ] || [ "$1" = "-help" ] || [ "$1" = "--help" ] || [ -z "$1" ]; then
   echo " "
   echo "use one input  -> ./enc.sh <config.json>"
-  echo "+ out filename -> ./enc.sh <config.json> <config.bin>"
+  echo "+ out filename -> ./enc.sh <config.json> <encrypt.bin>"
   echo " "
   exit
 else
