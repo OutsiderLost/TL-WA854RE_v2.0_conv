@@ -12,5 +12,5 @@ enc.sh !!!
 ### Not header, the output file is incomplete! ###
 
 use one input  -> ./enc.sh <config.json>"
-+ out filename -> ./enc.sh <config.json> <config.bin>"
++ out filename -> ./enc.sh <config.json> <encrypt.bin>"
 
