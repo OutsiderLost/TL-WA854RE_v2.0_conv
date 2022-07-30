@@ -21,7 +21,7 @@ echo "Y" | zlib-flate
 (or)
 apt install qpdf -y
 
-[or offline method]
+[offline method]
 
 tar -xvzf zlib-flate.tar.gz && chmod +x zlib-flate && sed 's/zlib-flate/.\/zlib-flate/g' -i *.sh
 (or)
