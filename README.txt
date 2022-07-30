@@ -25,5 +25,5 @@ apt install qpdf -y
 
 tar -xvzf zlib-flate.tar.gz && chmod +x zlib-flate && sed 's/zlib-flate/.\/zlib-flate/g' -i *.sh
 (or)
-tar -xvzf zlib-flate.tar.gz -C /usr/bin/zlib-flate && chmod +x /usr/bin/zlib-flate
+tar -xvzf zlib-flate.tar.gz -C /usr/bin && chmod +x /usr/bin/zlib-flate
 
