@@ -14,3 +14,16 @@ enc.sh !!!
 use one input  -> ./enc.sh <config.json>"
 + out filename -> ./enc.sh <config.json> <encrypt.bin>"
 
+=================================
+Dependencies install:
+
+echo "Y" | zlib-flate
+(or)
+apt install qpdf -y
+
+[or offline method]
+
+tar -xvzf zlib-flate.tar.gz && chmod +x zlib-flate && sed 's/zlib-flate/.\/zlib-flate/g' -i *.sh
+(or)
+tar -xvzf zlib-flate.tar.gz -C /usr/bin/zlib-flate && chmod +x /usr/bin/zlib-flate
+
