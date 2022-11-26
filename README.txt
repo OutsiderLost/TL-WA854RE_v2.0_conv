@@ -9,7 +9,10 @@ use one input  -> ./TL-WA854RE_v2.0_conv.sh <config.bin>
 ---------------------------------------
 enc.sh !!!
 ### WARNING ### Do not use live! Before that, you need to test it on your OWN router! ###
-### Not header, the output file is incomplete! ###
+
+### SET BEFORE USE: (default -> 5)
+# Editing by cleaning the binaries in the config.json file.  =>> 7 
+# Binaries left in place (editing mostly done with command). =>> 5
 
 use one input  -> ./enc.sh <config.json>"
 + out filename -> ./enc.sh <config.json> <encrypt.bin>"
