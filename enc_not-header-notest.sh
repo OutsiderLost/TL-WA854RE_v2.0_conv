@@ -15,6 +15,11 @@ fi
 
 zlib-flate -compress < "$varINP" > compress.bin
 
+# ----- CHOOSE METHOD: ----------------------------
+cat hdrvalue.bin compress.bin finbyte.bin > backhdr.bin
+# cat hdrvalue.bin compress.bin > backhdr.bin # Without final byte back method
+# -------------------------------------------------
+
 #dd bs=1 skip=144 if="$varINP" of=strphdr.bin
 # dd bs=1 skip=8323072 if=config.bin of=config1.bin
 
@@ -22,11 +27,15 @@ echo " "
 if [ -n "$2" ]; then
   varOUT=$2
   echo "(2 values -> custom out filename: '$varOUT')"
-  openssl enc -e -des-ecb -nopad -K 478DA50BF9E3D2CF -in compress.bin > "$varOUT"  # or 478DA50BF9E3D2CB # 478da50bf9e3d2cf8819839d4c061445
+  openssl enc -e -des-ecb -nopad -K 478DA50BF9E3D2CF -in backhdr.bin > "$varOUT"  # or 478DA50BF9E3D2CB # 478da50bf9e3d2cf8819839d4c061445
 else
   echo "(1 value -> default out filename: 'encrypt.bin')"
-  openssl enc -e -des-ecb -nopad -K 478DA50BF9E3D2CF -in compress.bin > encrypt.bin  # or 478DA50BF9E3D2CB # 478da50bf9e3d2cf8819839d4c061445
+  openssl enc -e -des-ecb -nopad -K 478DA50BF9E3D2CF -in backhdr.bin > encrypt.bin  # or 478DA50BF9E3D2CB # 478da50bf9e3d2cf8819839d4c061445
 fi
 
-#rm strphdr.bin
-rm compress.bin
+[ -f strphdr.bin ] && rm strphdr.bin
+[ -f decrypt.bin ] && rm decrypt.bin
+[ -f compress.bin ] && rm compress.bin
+#[ -f hdrvalue.bin ] && rm hdrvalue.bin
+[ -f finbyte.bin ] && rm finbyte.bin
+[ -f backhdr.bin ] && rm backhdr.bin
