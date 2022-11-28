@@ -23,8 +23,8 @@ openssl enc -d -des-ecb -nopad -K 478DA50BF9E3D2CF -in "$varINP" > decrypt.bin  
 # ============ v_end: SET BEFORE USE ============
 # DELETE BYTE BYNARY -> sed 's/<val>/<val>/g;s/[[:cntrl:]]//g' -i config.json =>> 7
 # RAWMODY IN LEAVE DEFAULT BINARY   ->   sed 's/<val>/<val>/g' -i config.json =>> 5
-#v_end=5 # RAWMODY
-v_end=7 #  CLEAN BINARY
+#v_end=7 # CLEAN BINARY
+v_end=5 # RAWMODY
 dd bs=1 if=decrypt.bin of=hdrvalue.bin count=144
 dd bs=1 if=decrypt.bin of=finbyte.bin skip="$(expr $(stat -c '%s' decrypt.bin) - "$v_end")"
 #dd bs=1 if=decrypt.bin of=nohdrnofin.bin skip=144 count="$(expr $(stat -c '%s' decrypt.bin) - $(expr 144 + "$v_end"))"
